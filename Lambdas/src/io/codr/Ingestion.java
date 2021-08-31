@@ -25,6 +25,11 @@ public class Ingestion {
 
         // Passing behaviour on the fly
         onTheFly(() -> System.out.println("Supplying behaviour on the fly"));
+
+
+
+
+
     }
 
     public static void onTheFly(MyInterface myInterface){
