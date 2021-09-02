@@ -20,3 +20,18 @@
 4. Supplier : Supplies/Return something
 
 Generally Function is used  for Transformation
+
+### Method & Constructor Reference
+
+1. **object :: instanceMethod** <br>
+   Method Reference to an instance method of an existing object <br>
+   `Ex : e -> System.out.println(e) => System.out :: println;`
+2. **Class :: staticMethod** <br>
+   Method Reference to a static method of a  class <br>
+   `Ex : Math.Random() => Math :: Random;`
+3. **Class :: instanceMethod** <br>
+   Method Reference to an instance method of an input object of particular type <br>
+   `Ex : s -> s.length() => String :: length`
+4. **Class :: New** <br>
+   Constructor Reference we can invoke as Method Reference
+   `Ex : r -> new Thread(r) => Thread :: new `
