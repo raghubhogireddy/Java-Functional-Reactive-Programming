@@ -33,5 +33,31 @@ Generally Function is used  for Transformation
    Method Reference to an instance method of an input object of particular type <br>
    `Ex : s -> s.length() => String :: length`
 4. **Class :: New** <br>
-   Constructor Reference we can invoke as Method Reference
+   Constructor Reference we can invoke as Method Reference <br>
    `Ex : r -> new Thread(r) => Thread :: new `
+
+### Optional
+
+Optional is a container object used to contain not-null objects. Optional object is used to represent null with absent value. 
+
+**_Creating Optional_**
+
+`String val = "Sample";` <br>
+`Optional<String> s = Optional.of(val);`
+
+**_empty Optional_**
+
+`Optional<Integer> empty = Optional.empty();`
+
+**_Creating Nullable_**
+
+`Optional<String> stringOptional = Optional.ofNullable(val);` <br>
+`Optional<String> emptyOptional = Optional.ofNullable(null);`
+
+**few methods on top of Optional**
+`get()` -> get the value from Optional<br>
+`isPresent()` -> checks if value present inside optional<br>
+`orElse(other)` -> return other if optional was empty<br>
+`orElseGet(Supplier)` -> return the supplier if optional was empty<br>
+`orElseThrow(exceptionSupplier)` -> Return the exception that we provide when optional was empty<br>
+`orElseThrow()` -> introduced in Java 10. and it was simultaneously equal to `get()`<br>
