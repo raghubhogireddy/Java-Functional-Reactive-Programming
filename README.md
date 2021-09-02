@@ -56,8 +56,12 @@ Optional is a container object used to contain not-null objects. Optional object
 
 **few methods on top of Optional**
 `get()` -> get the value from Optional<br>
-`isPresent()` -> checks if value present inside optional<br>
+`isPresent(consumer)` -> checks if value present inside optional<br>
 `orElse(other)` -> return other if optional was empty<br>
 `orElseGet(Supplier)` -> return the supplier if optional was empty<br>
 `orElseThrow(exceptionSupplier)` -> Return the exception that we provide when optional was empty<br>
 `orElseThrow()` -> introduced in Java 10. and it was simultaneously equal to `get()`<br>
+
+**few important methods to play with Optionals**
+
+`map(), filter(), flatMap()`
