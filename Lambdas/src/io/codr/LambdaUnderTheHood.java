@@ -3,7 +3,7 @@ package io.codr;
 public class LambdaUnderTheHood {
     public static void main(String[] args) {
 
-        /*MyInterface myInterface = new MyInterface() {
+        MyInterface myInterface = new MyInterface() {
             @Override
             public void myMethod() {
                 System.out.println("Impl 1");
@@ -15,9 +15,13 @@ public class LambdaUnderTheHood {
             public void myMethod() {
                 System.out.println("Impl 2");
             }
-        };*/
+        };
 
-        MyInterface myInterface = ()-> System.out.println("I'm  light  weight");
+        MyInterface myInterface3 = ()-> System.out.println("I'm  light  weight");
+
+        myInterface3.myMethod();
+        myInterface2.myMethod();
+        myInterface.myMethod();
 
 
 

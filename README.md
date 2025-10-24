@@ -1,5 +1,22 @@
 # Java-Functional-Reactive-Programming
 
+Functional Interfaces are interfaces with only one abstract method.
+Functions are first class citizens in functional programming.
+- They can be assigned to variables, passed as arguments and returned.
+
+### Key Built-in Functional Interfaces
+
+Java provides the `java.util.function` package with four core interfaces to cover most use cases:
+
+| Interface | Abstract Method             | Description | Example Lambda |
+| :--- |:----------------------------| :--- | :--- |
+| **`Predicate<T>`** | `boolean test(T t)`         | Takes one argument, returns a boolean. Used for filtering. | `s -> s.startsWith("A")` |
+| **`Consumer<T>`** | `void accept(T t)`          | Takes one argument, returns no result. Used for iteration/side-effects. | `i -> System.out.println(i)` |
+| **`Function<T, R>`** | `R apply(T t)`              | Takes one argument (T), returns one result (R). Used for mapping/transformation. | `s -> s.length()` |
+| **`Supplier<T>`** | `T get()`                   | Takes no arguments, returns a result (T). Used for lazy production. | `() -> new Random().nextInt()` |
+
+You can mark any interface you create with the `@FunctionalInterface` annotation (though it's optional) to ensure it can only contain one abstract method.
+
 **Function** : 
 1. Access Modifier
 2. ReturnType
@@ -8,13 +25,19 @@
 5. Method Body
 6. Return Statement
 
-**Lambda** :
-1. A list of Parameters
-2. An Arrow ->  which seperates  the list of  parameters from body of lambda
+**Lambda** : 
+A lambda expression is a short anonymous function that can be used to implement 
+functional interfaces
+1. A list of Parameters : Parameter list: (a, b)
+2. An Arrow token ->  which seperates  the list of  parameters from body of lambda
 3. The  body of  lambda
 
 **Most used  Functional Interfaces**
 1. Predicate : Tests Condition
+`
+
+
+`
 2. Consumer : Takes/Consume something
 3. Function : Takes something returns nothing
 4. Supplier : Supplies/Return something
@@ -23,6 +46,7 @@ Generally Function is used  for Transformation
 
 ### Method & Constructor Reference
 
+Method reference is a shorter way of writing a lambda
 1. **object :: instanceMethod** <br>
    Method Reference to an instance method of an existing object <br>
    `Ex : e -> System.out.println(e) => System.out :: println;`
