@@ -41,6 +41,30 @@ public class Main {
                 .sorted().collect(Collectors.toCollection(LinkedHashSet::new));
         System.out.println(flatMapResult);
 
+        // sorted
+        LinkedHashSet<Employee> employeeBySalary = employees.stream()
+                .sorted(Comparator.comparing(Employee::getSalary))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+
+        employeeBySalary.forEach(System.out::println);
+
+        // sorted - desc
+        LinkedHashSet<Employee> employeeByHighSalary = employees.stream()
+                .sorted(Collections.reverseOrder(Comparator.comparingDouble(Employee::getSalary)))
+                .collect(Collectors.toCollection(LinkedHashSet::new));
+
+        employeeByHighSalary.forEach(System.out::println);
+
+        // max
+        Optional<Employee> max = employees.stream()
+                .max(Comparator.comparingDouble(Employee::getSalary));
+        System.out.println(max.get());
+
+        // min
+        Optional<Employee> min = employees.stream()
+                .min(Comparator.comparingDouble(Employee::getSalary));
+        System.out.println(min.get());
+
 
     }
 }
