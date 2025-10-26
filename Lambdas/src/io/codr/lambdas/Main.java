@@ -34,9 +34,65 @@ public class Main {
         //groupingByEmployee(employees);
 
         //findFirst
-        findFirstBYDept(employees);
+        //findFirstBYDept(employees);
+
+        //findAny
+        //findAny(employees);
+
+        //anyMatch, allMatch, noneMatch
+        //anyOrAllOrNoneMatch(employees);
+
+        //limit
+        //limitByTopPaidEmployee(employees);
+
+        //skip(long)
+        skpEmployee(employees);
 
 
+    }
+
+    private static void skpEmployee(List<Employee> employees) {
+        List<Employee> skipEmployees = employees.stream().skip(5)
+                .collect(Collectors.toList());
+        System.out.println(skipEmployees);
+    }
+
+    private static void limitByTopPaidEmployee(List<Employee> employees) {
+        List<String> limitByTopPaidEmp = employees.stream()
+                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .map(Employee::getName)
+                .limit(3)
+                .collect(Collectors.toList());
+        System.out.println(limitByTopPaidEmp);
+    }
+
+    private static void anyOrAllOrNoneMatch(List<Employee> employees) {
+        boolean isAnyDevEmployeeExist = employees.stream()
+                .anyMatch(employee -> employee.getDept().equals("Development"));
+        System.out.println(isAnyDevEmployeeExist);
+
+
+        boolean isAllEmplSalaryGreater = employees.stream()
+                .allMatch(employee -> employee.getSalary() > 50000);
+        System.out.println(isAllEmplSalaryGreater);
+
+
+        boolean isInValidDept = employees.stream()
+                .noneMatch(employee -> employee.getDept().equals("abc"));
+        System.out.println(isInValidDept);
+
+
+    }
+
+    private static void findAny(List<Employee> employees) {
+        Employee devEmployee = employees.stream()
+                .filter(employee -> employee.getDept().equals("Development"))
+                .findAny().orElseGet(Employee::new);
+        System.out.println(devEmployee);
+
+        employees.stream()
+                .filter(employee -> employee.getDept().equals("abc"))
+                .findAny().orElseThrow(() -> new IllegalArgumentException("Employee for dept not found"));
     }
 
     private static void findFirstBYDept(List<Employee> employees) {
