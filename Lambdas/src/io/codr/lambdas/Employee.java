@@ -11,6 +11,9 @@ class Employee {
     private double salary;
     private String gender;
 
+    public Employee() {
+    }
+
     public Employee(int id, String name, String dept, List<Project> projects, double salary, String gender) {
         this.id = id;
         this.name = name;
